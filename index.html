@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VIIPE — õpi viipekeelt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+    <section class="screen onboarding-screen" id="onboardingScreen" hidden>
+  <div class="onboarding-card">
+    <span class="brand-mark">
+      <img src="assets/viipe-logo.png" alt="" />
+    </span>
+
+    <p class="eyebrow purple">TERE TULEMAST VIIPE</p>
+    <h1>Õpi viipekeelt<br />oma tempos.</h1>
+    <p>Alustamiseks vali üks võimalus.</p>
+
+    <div class="auth-actions">
+      <button class="auth-button secondary" id="loginStart">Logi sisse</button>
+      <button class="auth-button" id="registerStart">Registreeru →</button>
+      <button class="auth-button guest-button" id="guestStart">Proovi ilma kontota</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen onboarding-screen" id="goalScreen" hidden>
+  <div class="onboarding-card">
+    <button class="onboarding-back" id="onboardingBack">← Tagasi</button>
+
+    <p class="eyebrow purple">SINU EESMÄRK</p>
+    <h2>Miks tahad VIIPEsse tulla?</h2>
+    <p>Vali, mille jaoks soovid viipekeelt õppida.</p>
+
+    <div class="goal-grid">
+      <button class="goal-option" data-goal="Igapäevased viiped">👋 Igapäevased viiped</button>
+      <button class="goal-option" data-goal="Suhtlemine">💬 Suhtlemine</button>
+      <button class="goal-option" data-goal="Kool või töö">🎓 Kool või töö</button>
+      <button class="goal-option" data-goal="Lihtsalt proovin">✨ Lihtsalt proovin</button>
+    </div>
+
+    <button class="auth-button" id="goalContinue" disabled>Alusta õppimist →</button>
+  </div>
+  </section>
+
+<section class="screen onboarding-screen" id="loginScreen" hidden>
+  <div class="onboarding-card">
+    <button class="onboarding-back" id="loginBack">← Tagasi</button>
+    <p class="eyebrow purple">VIIPE KONTO</p>
+    <h2>Logi sisse</h2>
+    <p>Kirjuta oma nimi, et saaksime sinu edenemist näidata.</p>
+
+    <input class="profile-input" id="loginName" placeholder="Sinu nimi" />
+    <button class="auth-button" id="loginSubmit">Jätka →</button>
+  </div>
+</section>
+
+<section class="screen onboarding-screen" id="profileScreen" hidden>
+  <div class="onboarding-card">
+    <button class="onboarding-back" id="profileBack">← Tagasi õpirajale</button>
+    <p class="eyebrow purple">MINU PROFIIL</p>
+    <h2>Tere, <span id="profileNameOutput">õppija</span>!</h2>
+
+    <div class="profile-grid">
+      <div class="profile-stat">
+        <small>SINU EESMÄRK</small>
+        <strong id="profileGoalOutput">Õppida viipekeelt</strong>
+      </div>
+
+      <div class="profile-stat">
+        <small>KOGUTUD XP</small>
+        <strong><span id="profileXpOutput">0</span> XP</strong>
+      </div>
+
+      <div class="profile-stat">
+        <small>SINU TASE</small>
+        <strong id="profileLevelOutput">Tase 1 õppimisel</strong>
+      </div>
+    </div>
+
+    <button class="auth-button" id="profileStart">Jätka õppimist →</button>
+  </div>
+</section>
+
+<section class="screen" id="pathScreen">
+
+      <nav class="topbar">
+        <a class="brand" href="#">
+          <span class="brand-mark">
+            <img src="assets/viipe-logo.png" alt="" />
+          </span>
+          <span>VIIPE</span>
+        </a>
+        <div class="xp-pill">✨ <span id="xp">0</span> XP</div>
+      </nav>
+
+      <div class="path-hero">
+        <p class="eyebrow">SINU ÕPIRADA</p>
+        <h1>Õpi samm<br />sammult.</h1>
+        <p>Vali tase ja tee harjutused ükshaaval.</p>
+      </div>
+
+      <div class="level-path" id="levelPath"></div>
+      <section class="quick-area">
+  <p class="eyebrow purple">ROHKEM VIIPEST</p>
+
+  <div class="quick-grid">
+    <article class="quick-card daily-card">
+      <span class="quick-icon">☀️</span>
+      <div>
+        <small>DAILY</small>
+        <h3>Päeva väljakutse</h3>
+        <p>5 minutit õppimist</p>
+      </div>
+      <span class="quick-arrow">→</span>
+    </article>
+
+    <article class="quick-card">
+      <span class="quick-icon">⚡</span>
+      <div>
+        <small>MINU TASE</small>
+        <h3>Tase 2</h3>
+        <p>Tutvumine on avatud</p>
+      </div>
+      <span class="quick-arrow">→</span>
+    </article>
+
+    <article class="quick-card">
+      <span class="quick-icon">👤</span>
+      <div>
+        <small>PROFIIL</small>
+        <h3>Minu edenemine</h3>
+        <p>XP, seeria ja märgid</p>
+      </div>
+      <span class="quick-arrow">→</span>
+    </article>
+
+    <article class="quick-card login-card">
+      <span class="quick-icon">🔐</span>
+      <div>
+        <small>KONTO</small>
+        <h3>Logi sisse</h3>
+        <p>Salvesta oma edenemine</p>
+      </div>
+      <span class="quick-arrow">→</span>
+    </article>
+  </div>
+</section>
+
+</section>
+
+<section class="screen" id="gameScreen" hidden>
+      <nav class="topbar game-topbar">
+        <button class="back-button" id="backButton">← Tagasi</button>
+        <div class="xp-pill">✨ <span id="gameXp">0</span> XP</div>
+      </nav>
+
+      <div class="game-layout">
+        <div class="sign-stage">
+  <img id="signPlaceholder" src="assets/viipe-logo.png" alt="" />
+  <video id="signVideo" autoplay muted loop playsinline preload="auto" hidden></video>
+  <span>VIIPEVIDEO</span>
+</div>
+
+        <div class="game-card">
+          <div class="level-line">
+            <span id="levelName">Tase 1</span>
+            <span id="stepText">1 / 3</span>
+          </div>
+
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <p class="eyebrow purple">KÜSIMUS</p>
+          <h2 id="wordTitle">Tere</h2>
+          <p class="description" id="wordDescription"></p>
+
+          <div class="answers" id="answers"></div>
+          <p class="feedback" id="feedback"></p>
+
+          <button class="next-button" id="nextButton" disabled>Järgmine →</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen complete-screen" id="completeScreen" hidden>
+      <div class="complete-card">
+        <div class="celebration">🎉</div>
+        <p class="eyebrow purple">TASE LÕPETATUD</p>
+        <h2 id="completeTitle">Tase 1 tehtud!</h2>
+        <p id="completeText">Said uued sõnad selgeks.</p>
+        <strong>+<span id="earnedXp">30</span> XP</strong>
+        <button class="next-button" id="unlockButton">Ava järgmine tase →</button>
+        <button class="home-button" id="homeButton">Kas soovid tagasi minna?</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
