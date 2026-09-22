@@ -10,7 +10,9 @@
 
   if (!pathScreen || !gameScreen || !completeScreen || !profileScreen) return;
 
-  const mobileQuery = window.matchMedia("(max-width: 999px)");
+  const mobileQuery = window.matchMedia(
+    "(max-width: 999px), (hover: none) and (pointer: coarse)"
+  );
   const allScreens = {
     onboarding: onboardingScreen,
     login: loginScreen,

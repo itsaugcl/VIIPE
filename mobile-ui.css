@@ -4,7 +4,9 @@
   display: none;
 }
 
-@media (max-width: 999px) {
+/* Mõni telefoni sisseehitatud brauser avab lehe "arvutivaate" laiusega.
+   Puuteekraani tingimus hoiab VIIPE telefoni kujunduse siiski telefonis. */
+@media (max-width: 999px), (hover: none) and (pointer: coarse) {
   :root {
     --mobile-surface: rgba(255, 255, 255, 0.94);
     --mobile-ink: #172247;
