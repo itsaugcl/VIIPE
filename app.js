@@ -50,13 +50,23 @@ const levels = [
   }
 ];
 
+
 const questions = {
   Tere: "Mida ütled, kui kohtad kedagi?",
   Aitäh: "Mida ütled, kui keegi aitab sind?",
   "Head aega": "Mida ütled, kui lahkud kellegi juurest?",
-  "Minu nimi on": "Kuidas alustad enda tutvustamist?",
-  "Kuidas sul läheb?": "Kuidas küsid sõbralt tema enesetunde kohta?",
+  "Minu nimi on": "Kuidas tutvustad ennast?",
+  "Kuidas sul läheb?": "Mida küsid, kui tahad teada, kuidas teisel inimesel läheb?",
   Hästi: "Kuidas vastad, kui sul läheb hästi?"
+};
+
+const answerHints = {
+  Tere: "„Tere” kasutatakse siis, kui kohtad kedagi.",
+  Aitäh: "„Aitäh” kasutatakse siis, kui keegi aitab sind.",
+  "Head aega": "„Head aega” kasutatakse siis, kui lahkud.",
+  "Minu nimi on": "Selle lausega alustad enda tutvustamist.",
+  "Kuidas sul läheb?": "Seda küsid, kui tahad teada, kuidas teisel inimesel läheb.",
+  Hästi: "„Hästi” on vastus küsimusele „Kuidas sul läheb?”."
 };
 
 const pathScreen = document.getElementById("pathScreen");
@@ -222,6 +232,7 @@ function showQuestion() {
         answeredCorrectly = true;
         button.classList.add("correct");
         feedback.textContent = "Õige! +10 XP";
+        feedback.style.color = "#20c77a";
         nextButton.disabled = false;
 
         totalXp += 10;
@@ -229,7 +240,8 @@ function showQuestion() {
         saveProgress();
       } else {
         button.classList.add("incorrect");
-        feedback.textContent = "Proovi veel kord.";
+        feedback.textContent = `Proovi veel kord. ${answerHints[lesson.word]}`;
+        feedback.style.color = "#ff6f78";
       }
     });
 
