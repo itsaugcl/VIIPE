@@ -1,0 +1,581 @@
+/* VIIPE telefoni vaade. See fail toimib ainult alla 1000 px ekraanidel. */
+.viipe-mobile-nav,
+.viipe-mobile-sheet {
+  display: none;
+}
+
+@media (max-width: 999px) {
+  :root {
+    --mobile-surface: rgba(255, 255, 255, 0.94);
+    --mobile-ink: #172247;
+    --mobile-muted: #66708f;
+    --mobile-line: #dce3f2;
+    --mobile-soft: #f1f3ff;
+  }
+
+  html {
+    background: #eef2fb;
+  }
+
+  body {
+    min-width: 0;
+    background: #eef2fb;
+  }
+
+  .app {
+    width: 100%;
+    max-width: none;
+    min-height: 100dvh;
+    overflow: visible;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .screen {
+    min-height: 100dvh;
+    padding: max(18px, env(safe-area-inset-top)) 18px 112px;
+  }
+
+  /* Avaleht */
+  #pathScreen {
+    min-height: 100dvh;
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+    overflow: visible;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(135, 69, 241, 0.16), transparent 19rem),
+      radial-gradient(circle at 0% 64%, rgba(42, 123, 255, 0.12), transparent 22rem),
+      #f6f8ff;
+  }
+
+  #pathScreen .topbar {
+    min-height: 48px;
+    padding-right: 52px;
+  }
+
+  #pathScreen .brand {
+    gap: 8px;
+    font-size: 1.2rem;
+    letter-spacing: 0.06em;
+  }
+
+  #pathScreen .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+
+  #pathScreen .xp-pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 8px 10px;
+    margin-left: auto;
+    border: 1px solid rgba(111, 82, 230, 0.15);
+    color: #6d38da;
+    background: rgba(255, 255, 255, 0.84);
+    font-size: 0.74rem;
+  }
+
+  .theme-toggle {
+    top: max(16px, env(safe-area-inset-top));
+    right: 18px;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  #pathScreen .path-hero {
+    min-height: 0;
+    margin: 22px 0 20px;
+    padding: 26px 23px 28px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #236cff 0%, #5644e8 55%, #9a3fe7 100%);
+    box-shadow: 0 16px 32px rgba(65, 65, 202, 0.2);
+  }
+
+  #pathScreen .path-hero::after {
+    right: -94px;
+    bottom: -126px;
+    width: 225px;
+    height: 225px;
+  }
+
+  #pathScreen .path-hero h1 {
+    max-width: 300px;
+    margin: 0 0 11px;
+    padding: 0;
+    font-size: clamp(2.55rem, 12vw, 3.45rem);
+    letter-spacing: -0.07em;
+    line-height: 0.93;
+  }
+
+  #pathScreen .path-hero p:not(.eyebrow) {
+    max-width: 285px;
+    font-size: 0.92rem;
+  }
+
+  #pathScreen .path-hero .eyebrow {
+    margin-bottom: 13px;
+    font-size: 0.62rem;
+  }
+
+  #pathScreen .quick-area {
+    display: none;
+  }
+
+  #pathScreen .level-path {
+    display: grid;
+    min-height: 0;
+    gap: 11px;
+    max-width: none;
+    padding: 0 0 18px;
+    background: transparent !important;
+  }
+
+  #pathScreen .level-path::before {
+    display: none;
+  }
+
+  #pathScreen .level-button,
+  #pathScreen .level-button:nth-child(1),
+  #pathScreen .level-button:nth-child(2),
+  #pathScreen .level-button:nth-child(3) {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr) auto;
+    width: 100%;
+    min-height: 86px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--mobile-line) !important;
+    border-radius: 20px;
+    color: var(--mobile-ink);
+    background: var(--mobile-surface) !important;
+    box-shadow: 0 9px 23px rgba(41, 53, 119, 0.07) !important;
+    text-align: left;
+    transform: none !important;
+  }
+
+  #pathScreen .level-button:not(:disabled):hover,
+  #pathScreen .level-button:nth-child(1):hover,
+  #pathScreen .level-button:nth-child(2):hover,
+  #pathScreen .level-button:nth-child(3):hover {
+    border-color: #8971ed !important;
+    transform: translateY(-2px) !important;
+  }
+
+  #pathScreen .level-button:active {
+    transform: scale(0.985) !important;
+  }
+
+  #pathScreen .level-icon {
+    width: 48px;
+    height: 48px;
+    border: 3px solid white;
+    box-shadow: 0 5px 0 #314ee0, 0 9px 15px rgba(44, 66, 175, 0.17);
+    font-size: 1rem;
+  }
+
+  #pathScreen .level-button:first-child .level-icon {
+    box-shadow: 0 5px 0 #0b8653, 0 9px 15px rgba(12, 127, 79, 0.16);
+  }
+
+  #pathScreen .level-button:disabled .level-icon {
+    box-shadow: 0 5px 0 #c5cad7;
+  }
+
+  #pathScreen .level-copy {
+    width: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #pathScreen .level-copy small {
+    color: #7d48e5;
+    font-size: 0.58rem;
+  }
+
+  #pathScreen .level-copy h3 {
+    margin: 3px 0 4px;
+    color: var(--mobile-ink);
+    font-size: 0.95rem;
+  }
+
+  #pathScreen .level-copy p {
+    overflow: hidden;
+    margin: 0;
+    color: var(--mobile-muted);
+    font-size: 0.7rem;
+    line-height: 1.35;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  #pathScreen .level-status {
+    padding: 6px 8px;
+    border-radius: 100px;
+    color: #6f3add;
+    background: #f0edff;
+    box-shadow: none;
+    font-size: 0.66rem;
+    white-space: nowrap;
+  }
+
+  /* Harjutuse vaade */
+  #gameScreen {
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
+    background: #f6f8ff;
+  }
+
+  #gameScreen .game-topbar {
+    min-height: 42px;
+    margin-bottom: 18px;
+  }
+
+  #gameScreen .xp-pill {
+    display: inline-flex;
+    min-height: 34px;
+    padding: 8px 10px;
+  }
+
+  #gameScreen .back-button {
+    color: var(--mobile-ink);
+  }
+
+  #gameScreen .game-layout {
+    display: block;
+    margin: 0;
+  }
+
+  #gameScreen .sign-stage {
+    min-height: 0;
+    height: min(60vh, 430px);
+    gap: 8px;
+    padding: 9px;
+    border-radius: 24px;
+  }
+
+  #gameScreen .sign-stage video {
+    width: 100% !important;
+    max-width: none !important;
+    height: calc(min(60vh, 430px) - 44px) !important;
+    max-height: none !important;
+    border-radius: 16px;
+    object-fit: cover !important;
+  }
+
+  #gameScreen .sign-stage img {
+    width: 120px;
+    height: 120px;
+  }
+
+  #gameScreen .sign-stage span {
+    font-size: 0.59rem;
+  }
+
+  #gameScreen .game-card {
+    margin-top: 16px;
+    padding: 22px 18px 18px;
+    border: 1px solid var(--mobile-line);
+    border-radius: 23px;
+    background: var(--mobile-surface);
+    box-shadow: 0 11px 26px rgba(44, 57, 123, 0.07);
+  }
+
+  #gameScreen .progress-track {
+    margin: 12px 0 26px;
+  }
+
+  #gameScreen h2 {
+    margin-bottom: 9px;
+    color: var(--mobile-ink);
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
+    line-height: 1.04;
+  }
+
+  #gameScreen .description {
+    font-size: 0.9rem;
+  }
+
+  #gameScreen .answers {
+    margin-top: 20px;
+    gap: 9px;
+  }
+
+  #gameScreen .answer {
+    min-height: 56px;
+    padding: 15px 16px;
+    border-color: var(--mobile-line);
+    border-radius: 15px;
+    color: var(--mobile-ink);
+    background: var(--mobile-surface);
+  }
+
+  #gameScreen .feedback {
+    min-height: 42px;
+    margin: 13px 1px 0;
+    line-height: 1.42;
+  }
+
+  #gameScreen .next-button {
+    min-height: 56px;
+    margin-top: 9px;
+    border-radius: 16px;
+  }
+
+  /* Konto, eesmärgid ja lõpetamise ekraanid */
+  .onboarding-screen,
+  .complete-screen {
+    padding: max(20px, env(safe-area-inset-top)) 18px max(24px, env(safe-area-inset-bottom));
+  }
+
+  .onboarding-card,
+  .complete-card {
+    padding: 31px 21px;
+    border-radius: 25px;
+  }
+
+  .onboarding-card h1 {
+    font-size: clamp(2.3rem, 12vw, 3.3rem);
+  }
+
+  .onboarding-card h2,
+  .complete-card h2 {
+    font-size: clamp(1.9rem, 9vw, 2.45rem);
+  }
+
+  .auth-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .guest-button {
+    grid-column: auto;
+  }
+
+  #profileScreen {
+    padding: max(20px, env(safe-area-inset-top)) 18px max(30px, env(safe-area-inset-bottom));
+    background: #f6f8ff;
+  }
+
+  #profileScreen .onboarding-card {
+    text-align: left;
+  }
+
+  #profileScreen .onboarding-card .auth-button {
+    width: 100%;
+  }
+
+  /* Alumine telefoni menüü */
+  .viipe-mobile-nav {
+    position: fixed;
+    z-index: 120;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3px;
+    width: auto;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 6px;
+    border: 1px solid rgba(210, 219, 241, 0.9);
+    border-radius: 21px;
+    background: rgba(255, 255, 255, 0.91);
+    box-shadow: 0 16px 36px rgba(25, 39, 105, 0.2);
+    backdrop-filter: blur(18px);
+  }
+
+  .viipe-mobile-nav button {
+    display: grid;
+    min-height: 60px;
+    place-items: center;
+    gap: 3px;
+    padding: 6px 2px;
+    border: 0;
+    border-radius: 15px;
+    color: var(--mobile-muted);
+    background: transparent;
+    font: inherit;
+    font-size: 0.61rem;
+    font-weight: 800;
+  }
+
+  .viipe-mobile-nav button span:first-child {
+    display: grid;
+    width: 29px;
+    height: 29px;
+    place-items: center;
+    border-radius: 10px;
+    background: #eeecff;
+    font-size: 0.98rem;
+  }
+
+  .viipe-mobile-nav button.is-active {
+    color: #563be1;
+    background: #f0edff;
+  }
+
+  .viipe-mobile-nav button.is-active span:first-child {
+    color: white;
+    background: linear-gradient(135deg, #236cff, #8c3fe6);
+  }
+
+  /* Ülesannete kaart */
+  .viipe-mobile-sheet {
+    position: fixed;
+    z-index: 130;
+    inset: 0;
+    display: grid;
+    align-items: end;
+    padding: 16px 16px max(18px, env(safe-area-inset-bottom));
+    background: rgba(10, 20, 48, 0.38);
+  }
+
+  .viipe-mobile-sheet[hidden] {
+    display: none !important;
+  }
+
+  .mobile-sheet-card {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 22px;
+    border-radius: 26px;
+    color: var(--mobile-ink);
+    background: white;
+    box-shadow: 0 20px 48px rgba(7, 16, 48, 0.28);
+  }
+
+  .mobile-sheet-handle {
+    width: 42px;
+    height: 4px;
+    margin: 0 auto 19px;
+    border-radius: 100px;
+    background: #dce1ee;
+  }
+
+  .mobile-sheet-card h2 {
+    margin: 5px 0 7px;
+    font-size: 1.65rem;
+  }
+
+  .mobile-sheet-card p:not(.eyebrow) {
+    margin: 0;
+    color: var(--mobile-muted);
+    line-height: 1.5;
+  }
+
+  .mobile-quest-progress {
+    height: 10px;
+    margin: 20px 0 8px;
+    overflow: hidden;
+    border-radius: 100px;
+    background: #ececf8;
+  }
+
+  .mobile-quest-progress span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #236cff, #8c3fe6);
+    transition: width 280ms ease;
+  }
+
+  .mobile-quest-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #6c3fdf;
+    font-size: 0.76rem;
+    font-weight: 800;
+  }
+
+  .mobile-sheet-button,
+  .mobile-sheet-close {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 19px;
+    border: 0;
+    border-radius: 15px;
+    color: white;
+    background: linear-gradient(90deg, #236cff, #8c3fe6);
+    font: inherit;
+    font-weight: 800;
+  }
+
+  .mobile-sheet-close {
+    margin-top: 9px;
+    border: 1px solid var(--mobile-line);
+    color: #6a48cb;
+    background: white;
+  }
+
+  /* Tume režiim */
+  body.dark-theme {
+    --mobile-surface: #17263b;
+    --mobile-ink: #f1f5ff;
+    --mobile-muted: #afbcda;
+    --mobile-line: #334966;
+    --mobile-soft: #232143;
+    background: #0d1827;
+  }
+
+  body.dark-theme html,
+  body.dark-theme #pathScreen,
+  body.dark-theme #gameScreen,
+  body.dark-theme #profileScreen {
+    background:
+      radial-gradient(circle at 100% 0%, rgba(125, 67, 226, 0.22), transparent 20rem),
+      #0f1b2b;
+  }
+
+  body.dark-theme #pathScreen .xp-pill,
+  body.dark-theme .theme-toggle,
+  body.dark-theme .viipe-mobile-nav {
+    border-color: #324762;
+    background: rgba(23, 38, 59, 0.94);
+  }
+
+  body.dark-theme #pathScreen .level-status,
+  body.dark-theme .viipe-mobile-nav button.is-active,
+  body.dark-theme .viipe-mobile-nav button span:first-child {
+    color: #d9ccff;
+    background: #252143;
+  }
+
+  body.dark-theme #pathScreen .level-copy h3,
+  body.dark-theme #gameScreen h2,
+  body.dark-theme #gameScreen .back-button {
+    color: var(--mobile-ink);
+  }
+
+  body.dark-theme .mobile-sheet-card {
+    color: var(--mobile-ink);
+    background: #17263b;
+  }
+
+  body.dark-theme .mobile-sheet-handle,
+  body.dark-theme .mobile-quest-progress {
+    background: #30445f;
+  }
+
+  body.dark-theme .mobile-sheet-close {
+    border-color: #334966;
+    color: #d9ccff;
+    background: #17263b;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
