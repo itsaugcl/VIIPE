@@ -19,11 +19,14 @@
     --desk-purple: #843ce9;
     --desk-green: #18ad73;
     display: grid !important;
-    grid-template-columns: 230px minmax(550px, 820px) 280px;
+    width: 100%;
+    max-width: none !important;
+    margin: 0 !important;
+    grid-template-columns: 260px minmax(0, 1fr) 320px;
     grid-template-rows: 74px minmax(calc(100vh - 74px), auto);
-    gap: 0 38px;
+    gap: 0 44px;
     min-height: 100vh !important;
-    padding: 0 48px 58px 0 !important;
+    padding: 0 56px 58px 0 !important;
     overflow: visible !important;
     color: var(--desk-text);
     background:
@@ -243,7 +246,7 @@
   }
 
   .desktop-page-heading {
-    max-width: 620px;
+    max-width: 720px;
     margin-bottom: 36px;
   }
 
@@ -281,6 +284,8 @@
     align-items: center;
     gap: 58px;
     padding: 28px 0 50px;
+    max-width: 760px;
+    margin: 0 auto;
   }
 
   .desktop-learning-path::before {
@@ -774,7 +779,7 @@
   .achievement p { margin: 3px 0 0; color: var(--desk-muted); font-size: .73rem; }
 }
 
-@media (min-width: 1000px) and (max-width: 1240px) {
+@media (min-width: 1000px) and (max-width: 1340px) {
   #pathScreen { grid-template-columns: 205px minmax(0, 1fr); gap: 0 25px; padding-right: 28px !important; }
   .viipe-desktop-sidebar { padding-left: 17px; }
   .viipe-desktop-status { grid-column: 2; }

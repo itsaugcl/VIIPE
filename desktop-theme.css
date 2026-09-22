@@ -122,13 +122,17 @@ body.dark-theme .brand {
 
 @media (min-width: 1000px) {
   body {
-    padding: 16px;
+    padding: 0;
   }
 
   .app {
-    width: min(1480px, 100%);
+    width: 100%;
     max-width: none;
-    min-height: calc(100vh - 32px);
+    min-height: 100vh;
+    margin: 0;
+    overflow: visible;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .theme-toggle {
