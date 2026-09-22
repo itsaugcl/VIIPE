@@ -270,6 +270,18 @@
     return lessons[desktopState.matchIndex % lessons.length];
   };
 
+  const addVideoFallback = (video, preferredPath) => {
+    if (!video || !preferredPath || !preferredPath.includes("assets/videos/")) return;
+    const fallbackPath = preferredPath.replace("assets/videos/", "assets/");
+    video.addEventListener("error", () => {
+      if (video.dataset.fallbackTried === "true") return;
+      video.dataset.fallbackTried = "true";
+      video.src = fallbackPath;
+      video.load();
+      video.play().catch(() => {});
+    }, { once: true });
+  };
+
   const renderMatches = () => {
     const match = getMatch();
     if (!match) {
@@ -320,6 +332,7 @@
         <p>õiget vastust</p>
       </section>
     `;
+    addVideoFallback(panel.querySelector(".desktop-match-video video"), match.video);
   };
 
   const renderLeaderboard = () => {

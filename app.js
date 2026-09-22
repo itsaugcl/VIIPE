@@ -176,15 +176,30 @@ function openLevel(levelIndex) {
 function loadVideo(lesson) {
   if (!signVideo || !signPlaceholder) return;
 
- if (lesson.video) {
-  signPlaceholder.hidden = true;
-  signVideo.hidden = false;
-  signVideo.src = lesson.video;
-  signVideo.muted = true;
-  signVideo.loop = true;
-  signVideo.load();
-  signVideo.play().catch(() => {});
-} else {
+  if (lesson.video) {
+    const videoPaths = [
+      lesson.video,
+      lesson.video.replace("assets/videos/", "assets/")
+    ].filter((path, index, paths) => path && paths.indexOf(path) === index);
+    let pathIndex = 0;
+
+    const useVideoPath = () => {
+      signVideo.src = videoPaths[pathIndex];
+      signVideo.load();
+      signVideo.play().catch(() => {});
+    };
+
+    signPlaceholder.hidden = true;
+    signVideo.hidden = false;
+    signVideo.muted = true;
+    signVideo.loop = true;
+    signVideo.onerror = () => {
+      pathIndex += 1;
+      if (pathIndex < videoPaths.length) useVideoPath();
+    };
+    useVideoPath();
+  } else {
+    signVideo.onerror = null;
     signVideo.pause();
     signVideo.removeAttribute("src");
     signVideo.load();
